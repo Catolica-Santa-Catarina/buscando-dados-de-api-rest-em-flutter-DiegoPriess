@@ -28,20 +28,12 @@ class Location {
     }
   }
 
-  Future<void> getCurrentLocation() async {
+  Future<void> getCurrentPosition() async {
     await checkLocationPermission();
 
     Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.low);
     _latitude = position.latitude;
     _longitude = position.longitude;
-    printInfs();
-  }
-
-  void printInfs() {
-    print("Latitude: ");
-    print(getLatitude());
-    print("Longitude: ");
-    print(getLongitude());
   }
 
   double getLatitude() {
